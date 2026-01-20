@@ -32,7 +32,7 @@ public class Enemy : CombatEntity
     public override void Dead()
     {
         // 사운드 재생
-        SoundManager.instance.Dead();
+        if (SoundManager.instance != null) SoundManager.instance.Dead();
         base.Dead();
     }
 }

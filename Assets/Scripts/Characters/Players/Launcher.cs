@@ -20,7 +20,7 @@ public class Launcher : MonoBehaviour
     void Shoot()
     {
         // 사운드 재생
-        SoundManager.instance.Bullet();
+        if (SoundManager.instance != null) SoundManager.instance.Bullet();
         // 미사일 프리팹 생성
         Instantiate(bullet, transform.position, Quaternion.identity);
     }
