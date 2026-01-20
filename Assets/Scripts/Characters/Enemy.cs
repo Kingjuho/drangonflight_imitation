@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using Unity.IO.LowLevel.Unsafe;
+using UnityEngine;
+using UnityEngine.InputSystem.Processors;
 
 public class Enemy : CombatEntity
 {
@@ -24,5 +26,13 @@ public class Enemy : CombatEntity
     {
         // collision.gameObject.tag보다 안전한 방식
         if (collision.gameObject.CompareTag("Player")) Dead();
-    } 
+    }
+
+    // 사망 처리
+    public override void Dead()
+    {
+        // 사운드 재생
+        SoundManager.instance.Dead();
+        base.Dead();
+    }
 }
