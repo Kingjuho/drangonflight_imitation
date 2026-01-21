@@ -25,6 +25,9 @@ public class Bullet : MonoBehaviour
         // 충돌한 객체의 태그가 Enemy일 시
         if (collision.gameObject.CompareTag("Enemy")) 
         {
+            // 플레이어 스코어 증가
+            GameManager.instance.Addscore(100);
+
             // ICombat 인터페이스가 있는지 체크, 있으면 Dead() 호출
             if (collision.TryGetComponent<ICombat>(out ICombat target)) target.Dead();
         }
